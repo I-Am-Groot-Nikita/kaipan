@@ -1,0 +1,66 @@
+create table Student_Details_trainee_35(Name varchar(255),Standard int(52),Sex varchar(255),Monthly_Present varchar(255),Daily_Hours int(52));
+
+
+create table Student_Details_trainee_35(
+Name varchar(255) NOT NULL,
+Standard int(52) NOT NULL,
+Sex varchar(255) NOT NULL,
+Monthly_Present varchar(255) NOT NULL,
+Daily_Hours int(52) NOT NULL);
+
+Insert appropriate records in each tables.
+
+insert into Student_Details_trainee_35
+(Name,Standard,Sex,Monthly_Present,Daily_hours)
+values ("nikita rana",12,"female",25,9),
+("prarthana kariya",11,"female",22,8),
+("rumit dobariya",11,"male",15,8),
+("rahil",12,"male",20,9);
+
+ Display all the records for each tables separately.
+select * from Student_Details_trainee_35;
+
+ Remove all the records from each tables (with and without using DELETE statement).
+delete from Student_Details_trainee_35 where Name="prarthana kariya";
+delete from Student_Details_trainee_35 where Name in ("nikita rana","rumit dobariya","rahil");
+
+- Delete all the above tables.
+- Delete all the above tables.
+drop table Student_Details_trainee_35;
+
+
+2)PRODUCTS
+create table PRODUCTS_trainee_35(Name varchar(255),Price_rs int(52));
+
+- Insert appropriate records in each tables.
+INSERT INTO PRODUCTS_trainee_35 (Name,Price_rs)
+VALUES("CAKE",200),
+("BISCUITS",50),
+("PASTRY",100);
+
+- Display all the records for each tables separately.
+SELECT * FROM PRODUCTS_trainee_35;
+
+- Remove all the records from each tables (with and without using DELETE statement).
+ truncate table PRODUCTS_trainee_35;
+
+- Delete all the above tables.
+drop table PRODUCTS_trainee_35;
+
+(3)Materials
+create table  Materials_trainee_35(Name varchar(255) not null ,Price_rs varchar(255) not null);
+
+- Insert appropriate records in each tables.
+insert into Materials_trainee_35(Name,Price_rs)
+values ("mirror","100.rs"),
+("pencile box","50.rs");
+
+- Display all the records for each tables separately.
+select * from Materials_trainee_35;
+
+
+- Remove all the records from each tables (with and without using DELETE statement).
+truncate table Materials_trainee_35;
+
+- Delete all the above tables.
+drop table Materials_trainee_35;

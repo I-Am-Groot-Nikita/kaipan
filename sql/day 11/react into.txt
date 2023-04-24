@@ -1,0 +1,65 @@
+============================================
+way 1 to start react
+============================================
+Ways to install ReactJS
+
+Using the npm command
+Using the create-react-app command
+
+
+npm init -y  //package.json
+
+
+npm install react react-dom --save     //for react, react dom
+
+-------------------------------------------------------
+
+Install Webpack
+
+Webpack is used for module packaging, development, and production pipeline automation. 
+
+
+npm install webpack webpack-dev-server webpack-cli --save   //install webpack,webpack-dev-server,webpack-cli
+
+-------------------------------------------------------------
+
+Install Babel
+
+Babel is a JavaScript compiler and transpiler used to convert one source code to others.
+
+>npm install babel-core babel-loader babel-preset-env babel-preset-react babel-webpack-plugin --save-dev  
+
+-------------------------------------------------------
+app.js
+
+import React, { Component } from 'react';  
+class App extends Component{  
+   render(){  
+      return(  
+         <div>  
+            <h1>Hello World</h1>  
+         </div>  
+      );  
+   }  
+}  
+export default App;  
+------------------------------------------------
+main.js
+
+import React from 'react';  
+import ReactDOM from 'react-dom';  
+import App from './App.js';  
+  
+ReactDOM.render(<App />, document.getElementById('app'));  
+---------------------------------------
+for running 
+
+npm start
+---------------------------------------
+
+======================================
+way 2 to start react app
+========================================
+
+npm install -g create-react-app  
+create-react-app jtp-reactapp 

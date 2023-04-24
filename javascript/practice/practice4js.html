@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h2>map</h2>
+<pre>// Create a Map
+                const fruits = new Map([
+                  ["apples", 500],
+                  ["bananas", 300],
+                  ["oranges", 200]
+                ]);
+
+                let text = "";
+                fruits.forEach (function(value, key) {
+                  text += key + ' = ' + value + "<br>"
+                })
+
+                document.getElementById("demo").innerHTML = text;</pre>
+<p id="demo"></p>
+
+
+
+<!-- // use of .name.value -->
+
+<form name="form1">
+    Enter Name:<input type="text" name="Fname" />
+    <input type="button" onclick="printvalue()" value="print name" />
+</form>
+
+<!-- use of function -->
+<form name="myForm">
+    <input type="button" value="comment" onclick="showcommentform()">
+    <div id="mylocation"></div>
+</form>
+
+<body>
+
+
+
+
+    <script>
+        // Essential Map Methods
+        // Method	Description
+        // new Map()	Creates a new Map
+        // set()	Sets the value for a key in a Map
+        // get()	Gets the value for a key in a Map
+        // delete()	Removes a Map element specified by the key
+        // has()	Returns true if a key exists in a Map
+        // forEach()	Calls a function for each key / value pair in a Map
+        // entries()	Returns an iterator with the[key, value] pairs in a Map
+
+        // Property	Description
+        // size	Returns the number of elements in a Map
+
+        // Create a Map
+        const fruits = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+
+        let text = "";
+        fruits.forEach(function (value, key) {
+            text += key + ' = ' + value + "<br>"
+        })
+
+        document.getElementById("demo").innerHTML = text;
+
+
+
+        // use of .name.value
+        function printvalue() {
+            var name = document.form1.Fname.value;
+            alert("Welcome: " + name);
+        }
+
+        //use of function
+        function showcommentform() {
+            var data = "Name:<br><input type='text' name='name'><br>Comment:<br><textarea rows='5' cols='50'></textarea><br><input type='submit' value='comment'>";
+
+            document.getElementById('mylocation').innerHTML = data;
+        } 
+    </script>
+</body>
+
+</html>

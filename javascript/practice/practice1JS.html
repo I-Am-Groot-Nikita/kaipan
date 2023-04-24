@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFuntion1(){
+            document.getElementById("demo").innerHTML =  "script tag in head is working";
+        }
+        </script>
+</head>
+<body>
+    <!-- Writing into an HTML element, using innerHTML.
+Writing into the HTML output using document.write().
+Writing into an alert box, using window.alert().
+Writing into the browser console, using console.log() -->
+
+<!--  access an HTML element, JavaScript can use the document.getElementById(id) method -->
+
+<h2>My First Web Page</h2>
+<p>My First Paragraph.</p>
+
+<p id="demo"></p>
+<button type="button" onclick="document.getElementById('demo').innerHTML =  5 + 6;"> try me </button>
+<hr>
+<button type="button" onclick="myFuntion()">use function </button>
+<hr>
+<button type="button" onclick="myFuntion1()">use myFuntion1 from head</button>
+<hr>
+<button type="button" onclick="window.alert('you have click at alert button');">alert</button>
+<hr>
+<script>
+function myFuntion(){
+    document.getElementById("demo").innerHTML =  "summation is done";
+}
+
+
+document.getElementById("demo").innerHTML = "change in paragragh without function from script tag";
+
+
+
+// use of document.write(5 + 6);
+
+document.write("using document.write");
+
+// using windows alert
+window.alert("print using windows alert");
+
+alert(5 + 6);
+
+// console.log 
+
+console.log(5 + 6);
+
+</script>
+
+</body>
+</html>

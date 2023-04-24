@@ -1,0 +1,64 @@
+-   Tables Used:=
+    
+    -	student  (recid, name)
+
+    -   studentdetail (recid, studentid, standard, flagsex)
+
+    -   studentpresent (recid, studentid, month, present)
+
+    -   studenthours (recid, studentid, datex, hours)
+
+    -   product (recid, name)
+
+    -   productprice (recid, productid, code, effdt, price)
+
+
+-   Write queries for following requirements:
+
+Q-1 Print total number of boys and girls within a single record.
+	Fields : Boys, Girls
+
+	Required Output:
+	================
+	Boys	Girls
+	5	3
+
+select (select count(*) from studentdetail_trainee_35 where flagsex = 0) as Girls,
+(select count(*) from studentdetail_trainee_35 where flagsex = 1) as Boys;
+
+Q-2 Find total number of Hours for Boys and Girls. 
+	Fields : Gender, Present(Hrs)
+
+	Required Output:
+	================
+	Gender	Present(Hrs)
+	Boys	100
+	Girls	120
+
+select
+case
+	when sd.flagsex = 0 then 'Girls'
+	else 'Boys'
+end as Gender,sum(sp.present) "Present(hrs)" from studentdetail_trainee_35 sd
+inner join studentpresent_trainee_35 sp on sp.recid = sd.recid group by sd.flagsex;
+
+Q-3 Find all latest prices for each code for each product.
+	Fields : Product Name, Code, Date, Price
+
+	Required Output:
+	================
+	Product Name	Code	Date		Price
+	Computer	COMP	2007-01-01	Rs. 24,000/-
+	
+select p.name "Product Name",pp.code "Code",max(date_format(pp.effdt,'%Y-%m-%d')) "Date" ,concat("Rs. ",pp.price,"/-") "Price"
+from product_trainee_35 p
+inner join productprice_trainee_35 pp
+on p.recid = pp.recid
+group by pp.code;
+
+
+select p.name "Product Name",pp.code "Code",max(date_format(pp.effdt,'%Y-%m-%d')) "Date" ,(select concat("Rs. ",pp.price,"/-") from productprice_trainee_35 group by pp.code having max(date_format(pp.effdt,'%Y-%m-%d')))"Price"
+from product_trainee_35 p
+inner join productprice_trainee_35 pp
+on p.recid = pp.recid
+group by pp.code ;

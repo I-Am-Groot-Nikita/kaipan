@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(../../blue\ stones.jfif);
+        }
+        .form {
+            margin-top: 10%;
+            margin-right: 20%;
+            margin-left: 20%;
+            padding: 5px;
+            border: 2px solid rgb(61, 61, 61);
+            border-radius: 10px;
+            /* background-image: url(../../yellow\ mate.jfif); */
+            background: linear-gradient(90deg,rgba(0, 0, 0, 0.132),rgba(0, 0, 0, 0.132)),url(../../yellow\ mate.jfif);
+            height: 300px;
+            color: rgb(0, 0, 0);
+            padding-left: 15%;
+            padding-top: 5%;
+        }
+
+        .flex {
+            font-size: larger;
+            display: flex;
+            padding-top: 10px;
+        }
+        button{
+            border: 0;
+            background: transparent;
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
+    <script src="practical7.js">
+
+    </script>
+</head>
+
+<body>
+    <div class="form">
+        <div class="flex">
+           
+                <div style="text-align: right;font-weight: bolder;list-style-type: none;">
+                    select your technology :<hr>
+                    <li>USA</li>
+                    <li>UK</li>
+                    <li>India</li>
+                    <li>Asia Pacific</li>
+                    <li>Australia</li>
+                    <li>Middle East</li>
+                </div>
+
+                <div style="text-align: left;font-weight: bolder;list-style-type: none;">
+                    <!-- <button onclick="checkall()"><input type="checkbox" name = "checkall" value="allcheck" /></li></button><hr> -->
+                    
+                    <li><input type="checkbox" name="checkall" value="checkall" onclick="select()"></li><hr>
+                    <li><input type="checkbox" name="checkme" value="USA"></li>
+                    <li><input type="checkbox" name="checkme" value="UK"></li>
+                    <li><input type="checkbox" name="checkme" value="India"></li>
+                    <li><input type="checkbox" name="checkme" value="Asia Pacific"></li>
+                    <li><input type="checkbox" name="checkme" value="Australia"></li>
+                    <li><input type="checkbox" name="checkme" value="Middle East"></li>
+                </div>    
+               
+        </div>
+    </div>
+
+</body>
+
+</html>

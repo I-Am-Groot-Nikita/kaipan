@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS practice</title>
+</head>
+
+<body>
+    <!-- array -->
+    <h2>Array</h2>
+    <p id="demo"></p>
+
+    <hr>
+    <h5>Objects use names to access its "members".In this example,const person = { firstName: "John", lastName: "Doe",
+        age: 46 };<br>
+        person.firstName returns John:</h5>
+    <p id="demo1"></p>
+
+    <hr>
+    <!-- The length Property -->
+    <h3>The length Property</h3>
+    <pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        let length = fruits.length;</pre>
+    <p id="demo2"></p>
+
+    <hr>
+    <h3>loops in array</h3>
+    <p id="demo3"></p>
+
+    <hr>
+    <h3>push with help of length</h3>
+    <pre>length property provides an easy way to append a new element to an array:
+
+        Example
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits[fruits.length] = "Kiwi";</pre>
+    <p id="demo4"></p>
+
+    <hr>
+    <h3>delete</h3>
+    <pre>const fruitsss = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo5").innerHTML =
+            "The first fruit is: " + fruitsss[0];
+        delete fruitsss[0];
+        document.getElementById("demo6").innerHTML =
+            "The first fruit is: " + fruitsss[0];</pre>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+
+    <hr>
+    <!-- splice -->
+    <h3>splice</h3>
+    <pre> const frui = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo7").innerHTML = frui;
+        frui.splice(2, 0, "Lemon", "Kiwi");
+        document.getElementById("demo8").innerHTML = frui;
+        frui.splice(2, 2, "fruit1", "fruit2");
+        document.getElementById("demo9").innerHTML = frui;</pre>
+    <p id="demo7"></p>
+    <p id="demo8"></p>
+    <p id="demo9"></p>
+    removed items are:<p id="demo10"></p>
+
+    <hr>
+    <!-- min max value -->
+    <h3>min max value</h3>
+    <pre>const points = [40, 100, 1, 5, 25, 10];
+            document.getElementById("demo11").innerHTML = myArrayMax(points);
+            function myArrayMax(arr) {
+                return Math.max.apply(null, arr);
+            }
+            document.getElementById("demo12").innerHTML = myArrayMin(points);
+            function myArrayMin(arr) {
+                return Math.min.apply(null, arr);
+            }</pre>
+    <p id="demo11"></p>
+    <p id="demo12"></p>
+
+    <hr>
+    <h3>filter</h3>
+    <pre>const numbers = [45, 4, 9, 16, 25];
+        const over18 = numbers.filter(myFunction);
+        document.getElementById("demo13").innerHTML = over18;
+        function myFunction(value, index, array) {
+            return value > 18;
+        }</pre>
+    <p id="demo13"></p>
+
+    <hr>
+    <h3>map</h3>
+    <pre>const numbers1 = [45, 4, 9, 16, 25];
+        const numbers2 = numbers1.map(myFunction);
+        document.getElementById("demo14").innerHTML = numbers2;
+        function myFunction(value, index, array) {
+            return value * 2;
+        }</pre>
+    <p id="demo14"></p>
+
+    <hr>
+    <h3>array.from()</h3>
+    <pre>const myArr = Array.from("ABCDEFG");
+        document.getElementById("demo15").innerHTML = myArr;</pre>
+    <p id="demo15"></p>
+    <hr style="border: 2px solid black">
+
+    <!-- dates -->
+
+    <h2>dates</h2>
+    <p id="demo16"></p>
+    <p id="demo17"></p>
+    <p id="demo18"></p>
+    <p id="demo19"></p>
+    <p id="demo20"></p>
+    <p id="demo21"></p>
+    <p id="demo22"></p>
+    <p id="demo23"></p>
+    <p id="demo24"></p>
+    <hr style="border: 2px solid black">
+
+    <!-- math -->
+    <h3>math function</h3>
+    <p id="demo25"></p>
+
+    <hr>
+    <h3>random value</h3>
+    <p>Every time you click the button, getRndInteger(min, max) returns a random number between 25
+        and 45 (both included)</p>
+    <button onclick="document.getElementById('demo26').innerHTML = getRndInteger(25,45)">Click Me</button>
+    <p id="demo26"></p>
+
+    <hr style="border: 2px solid black">
+    <h3>IF condition</h3>
+    <pre>if (new Date().getHours() < 18) {
+        document.getElementById("demo").innerHTML = "Good day!";
+      }</pre>
+    <p id="demo27"></p>
+
+    <hr style="border: 2px solid black">
+    <h3>switch</h3>
+    <pre>
+        let day;
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case  6:
+    day = "Saturday";
+}
+document.getElementById("demo28").innerHTML = "Today is " + day;
+    </pre>
+    <p id="demo28"></p>
+    <hr style="border: 2px solid black">
+
+    <!-- FOR LOOP -->
+    <h2>For loop</h2>
+    <pre>let text = "";
+
+        for (let i = 0; i < 5; i++) {
+          text += "The number is " + i + "<br>";
+        }
+        
+        document.getElementById("demo").innerHTML = text;</pre>
+    <p id="demo29"></p>
+    <hr style="border: 2px solid black">
+
+    <!-- set() use add() -->
+    <h3>set()</h3>
+    <pre>   //set() use add()
+        // Create a Set
+        const set_ = new Set();
+        // Add values to the Set
+        set_.add("a");
+        set_.add("b");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        // Display set.size
+        document.getElementById("demo30").innerHTML = set_.size;</pre>
+    <p id="demo30"></p>
+    <pre>// List all Elements
+        let tt = "";
+        set_.forEach(function (values) {
+            tt += values + "<br>";
+        })
+
+        document.getElementById("demo31").innerHTML = text;</pre>
+    <p id="demo31"></p>
+
+    <hr style="border: 2px solid black">
+
+    <!-- regular expression -->
+    <h3>regular expression</h3>
+    <p id="demo32"></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const cars = ["Saab", "Volvo", "BMW"];
+        document.getElementById("demo").innerHTML = cars;
+
+        const person = { firstName: "John", lastName: "Doe", age: 46 };
+        document.getElementById("demo1").innerHTML = person.firstName;
+
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo2").innerHTML = fruits.length;
+
+        // loops in array
+        const fruit = ["Banana", "Orange", "Apple", "Mango"];
+        let fLen = fruit.length;
+        let text = "<ul>";
+        for (let i = 0; i < fLen; i++) {
+            text += "<li>" + fruit[i] + "</li>";
+        }
+        text += "</ul>";
+        document.getElementById("demo3").innerHTML = text;
+
+
+        //methods 
+
+
+        // typeof -- gives type as an output
+        //isArray()  --gives boolean value
+        //instanceof --gives boolean value
+        // join()
+        //toString() --toString() converts an array to a string of (comma separated) array values.
+        //pop() method removes the last element from an array    e.g  arrayName.pop();
+        //push() 
+        //shift()
+        //unshift()
+        //length property provides an easy way to append a new element to an array:
+
+        const fruitss = ["Banana", "Orange", "Apple", "Mango"];
+        fruitss[fruitss.length] = "Kiwi";
+        document.getElementById("demo4").innerHTML = fruitss;
+
+
+        /*Array elements can be deleted(delete()) using the JavaScript operator delete.
+        Using delete leaves undefined holes in the array.
+        Use pop() or shift() instead.
+        */
+
+        const fruitsss = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo5").innerHTML =
+            "The first fruit is: " + fruitsss[0];
+        delete fruitsss[0];
+        document.getElementById("demo6").innerHTML =
+            "The first fruit is: " + fruitsss[0];
+
+        // concat()
+        // The splice() method adds new items to an array.
+        // The slice() method slices out a piece of an array.       
+
+        // splice
+        const frui = ["Banana", "Orange", "Apple", "Mango"];
+        document.getElementById("demo7").innerHTML = frui;
+        frui.splice(2, 0, "Lemon", "Kiwi");
+        document.getElementById("demo8").innerHTML = frui;
+        var remove = frui.splice(2, 2, "fruit1", "fruit2");
+        document.getElementById("demo9").innerHTML = frui;
+        document.getElementById("demo10").innerHTML = remove;
+
+
+        //sorting methods
+
+        //reverse()
+        //sort()
+
+
+        const points = [40, 100, 1, 5, 25, 10];
+        document.getElementById("demo11").innerHTML = myArrayMax(points);
+        function myArrayMax(arr) {
+            return Math.max.apply(null, arr);
+        }
+        document.getElementById("demo12").innerHTML = myArrayMin(points);
+        function myArrayMin(arr) {
+            return Math.min.apply(null, arr);
+        }
+
+
+
+        //iteration
+        // forEach()
+
+        //filter
+        const numbers = [45, 4, 9, 16, 25];
+        const over18 = numbers.filter(myFunction);
+        document.getElementById("demo13").innerHTML = over18;
+        function myFunction(value, index, array) {
+            return value > 18;
+        }
+
+        // The map() method creates a new array by performing a function on each array element.
+        // The map() method does not execute the function for array elements without values.
+        // The map() method does not change the original array.
+        const numbers11 = [45, 4, 9, 16, 25];
+        const numbers22 = numbers11.map(myFunction);
+        document.getElementById("demo14").innerHTML = numbers22;
+        function myFunction(value, index, array) {
+            return value * 2;
+        }
+
+        // /every() method checks if all array values pass a test.
+        //some() method checks if some array values pass a test.
+        //indexOf() method searches an array for an element value and returns its position
+        //Array.lastIndexOf()
+        //find()
+        // findIndex()
+
+        //array.from()
+        const myArr = Array.from("ABCDEFG");
+        document.getElementById("demo15").innerHTML = myArr;
+
+
+        //entries()
+
+
+
+        //There are 9 ways to create a new date object:
+        // new Date()
+        // new Date(date string)
+        // new Date(year,month)
+        // new Date(year,month,day)
+        // new Date(year,month,day,hours)
+        // new Date(year,month,day,hours,minutes)
+        // new Date(year,month,day,hours,minutes,seconds)
+        // new Date(year,month,day,hours,minutes,seconds,ms)
+        // new Date(milliseconds)
+        document.getElementById("demo16").innerHTML = new Date();
+        document.getElementById("demo17").innerHTML = new Date("2022-03-25");
+        document.getElementById("demo18").innerHTML = new Date(2019, 05);
+        document.getElementById("demo19").innerHTML = new Date(2022, 04, 27);
+        document.getElementById("demo20").innerHTML = new Date(2020, 04, 27, 12);
+        document.getElementById("demo21").innerHTML = new Date(2018, 04, 27, 12, 30);
+        document.getElementById("demo22").innerHTML = new Date(2017, 04, 27, 12, 30, 55);
+        document.getElementById("demo23").innerHTML = new Date(2019, 04, 27, 12, 30, 55, 5);
+        document.getElementById("demo24").innerHTML = new Date(100000000000);
+
+
+
+        // TYPES OF DATES FORMATES
+
+        // ISO Date	"2015-03-25" (The International Standard)
+        // Short Date	"03/25/2015"
+        // Long Date	"Mar 25 2015" or "25 Mar 2015"
+
+
+        // get date methods
+        // getFullYear()	Get year as a four digit number (yyyy)
+        // getMonth()	Get month as a number (0-11)
+        // getDate()	Get day as a number (1-31)
+        // getDay()	Get weekday as a number (0-6)
+        // getHours()	Get hour (0-23)
+        // getMinutes()	Get minute (0-59)
+        // getSeconds()	Get second (0-59)
+        // getMilliseconds()	Get millisecond (0-999)
+        // getTime()	Get time (milliseconds since January 1, 1970)
+        // if we use UTC in after get we will get universal time coordinate
+
+        // set date methods
+        // setDate()	Set the day as a number (1-31)
+        // setFullYear()	Set the year (optionally month and day)
+        // setHours()	Set the hour (0-23)
+        // setMilliseconds()	Set the milliseconds (0-999)
+        // setMinutes()	Set the minutes (0-59)
+        // setMonth()	Set the month (0-11)
+        // setSeconds()	Set the seconds (0-59)
+        // setTime()	Set the time (milliseconds since January 1, 1970)
+
+
+        //math
+        document.getElementById("demo25").innerHTML =
+            "<p><b>Math.E:</b> " + Math.E + "</p>" +
+            "<p><b>Math.PI:</b> " + Math.PI + "</p>" +
+            "<p><b>Math.SQRT2:</b> " + Math.SQRT2 + "</p>" +
+            "<p><b>Math.SQRT1_2:</b> " + Math.SQRT1_2 + "</p>" +
+            "<p><b>Math.LN2:</b> " + Math.LN2 + "</p>" +
+            "<p><b>Math.LN10:</b> " + Math.LN10 + "</p>" +
+            "<p><b>Math.LOG2E:</b> " + Math.LOG2E + "</p>" +
+            "<p><b>Math.Log10E:</b> " + Math.LOG10E + "</p>";
+
+        //Math.round(x)	Returns x rounded to its nearest integer
+        // Math.ceil(x)	Returns x rounded up to its nearest integer
+        // Math.floor(x)	Returns x rounded down to its nearest integer
+        // Math.trunc(x)	Returns the integer part of x(new in ES6)
+        // Math.sign()
+        //Math.pow(x, y)
+        // Math.sqrt(x)
+        //Math.abs(x)
+        //Math.sin(x)
+        //Math.min() and Math.max()
+        //Math.log(x)
+        // Math.log2(x) returns the base 2 logarithm of x
+        // Math.log10(x) returns the base 10 logarithm of x.
+
+
+        //random
+        // Returns a random integer from 0 to 9:
+        document.getElementById("demo").innerHTML = Math.floor(Math.random() * 10);
+        // Returns a random integer from 0 to 10:
+        document.getElementById("demo").innerHTML = Math.floor(Math.random() * 11);
+        // Returns a random integer from 0 to 99:
+        document.getElementById("demo").innerHTML = Math.floor(Math.random() * 100);
+        // Returns a random integer from 1 to 100:
+        document.getElementById("demo").innerHTML = Math.floor(Math.random() * 100) + 1;
+        //function getRndInteger(min, max) {
+        //   return Math.floor(Math.random() * (max - min) ) + min;
+        // }
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        //Boolean() 
+
+        //IF condition
+        if (new Date().getHours() < 18) {
+            document.getElementById("demo27").innerHTML = "Good day!";
+        }
+
+        //switch case
+        let day;
+        switch (new Date().getDay()) {
+            case 0:
+                day = "Sunday";
+                break;
+            case 1:
+                day = "Monday";
+                break;
+            case 2:
+                day = "Tuesday";
+                break;
+            case 3:
+                day = "Wednesday";
+                break;
+            case 4:
+                day = "Thursday";
+                break;
+            case 5:
+                day = "Friday";
+                break;
+            case 6:
+                day = "Saturday";
+        }
+        document.getElementById("demo28").innerHTML = "Today is " + day;
+
+
+
+        //for loop
+        let texts = "";
+
+        for (let i = 0; i < 5; i++) {
+            texts += "The number is " + i + "<br>";
+        }
+
+        document.getElementById("demo29").innerHTML = texts;
+
+
+        //for In loop
+        // for Out loop
+        //while loop
+
+        //set() use add()
+        // Create a Set
+        const set_ = new Set();
+        // Add values to the Set
+        set_.add("a");
+        set_.add("b");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        set_.add("c");
+        // Display set.size
+        document.getElementById("demo30").innerHTML = set_.size;
+
+        // List all Elements
+        let textssss = "";
+        set_.forEach(function (value) {
+            textssss += value + "<br>";
+        })
+
+        document.getElementById("demo31").innerHTML = textssss;
+
+
+
+
+        //regular expression
+        const obj = /e/.exec("The best things in life are free!");
+        document.getElementById("demo32").innerHTML =
+            "Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practical 8</title>
+</head>
+
+<style>
+    body {
+        background-image: url(../../blue\ stones.jfif);
+    }
+
+    .li {
+        list-style-type: none;
+        font-weight: bolder;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 30px;
+    }
+
+    .form {
+        margin-top: 10%;
+        margin-right: 20%;
+        margin-left: 20%;
+        padding: 5px;
+        border: 2px solid rgb(61, 61, 61);
+        border-radius: 10px;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.132), rgba(0, 0, 0, 0.132)), url(../../yellow\ mate.jfif);
+        height: 300px;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+    }
+    #date{
+        width: 150px;
+        height: 30px;
+        font-size: large;
+        font-weight: bold;
+    }
+    .submit {
+            font-size: large;
+            font-weight: bold;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            background-color: #1e96e1;
+        }
+
+</style>
+
+<body>
+    <div class="li form">
+        <div>
+            Enter date here:
+        </div>
+        <div>
+            <input type="text" name="date" id="date">
+        </div>
+        <div>
+            <input type="button" value="submit" class="submit" onclick="valDate()">
+        </div>
+        <div>
+            <p id="msg" class="li"></p>
+        </div>
+    </div>
+</body>
+<script src="./prac8.js">
+
+</script>
+
+</html>

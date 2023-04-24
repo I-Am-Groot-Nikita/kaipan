@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(../../blue\ stones.jfif);
+        }
+        .form {
+            margin-top: 10%;
+            margin-right: 20%;
+            margin-left: 20%;
+            padding: 5px;
+            border: 2px solid rgb(61, 61, 61);
+            border-radius: 10px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(../../yellow\ mate.jfif);
+        
+        }
+
+        .flex {
+            font-size: larger;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #paragraph {
+            border: 2px dotted black;
+            border-radius: 10px;
+            height: 300px;
+            width: 300px;
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .textbox {
+            width: 200px;
+            height: 30px;
+            margin: 10px;
+            border: 2px solid black;
+            border-radius: 10px;     
+        }
+
+        .button {
+            font-size: large;
+            font-weight: bold;
+            border-radius: 5px;
+            color: rgb(0, 0, 0);
+            background-color: #00b4d8;
+        }
+    </style>
+    <script src="2.js">
+
+    </script>
+</head>
+
+<body>
+    <div class="form">
+        <div class="flex">
+
+            <input class="textbox" type="text" name="text" id="text">
+
+            <input type="button" value="submit" class="button" onclick="checknumber()">
+
+            <p id="paragraph"></p>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

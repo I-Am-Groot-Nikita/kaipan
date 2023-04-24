@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="/action_page.php">
+
+	<!--use of datetime local --> 
+	<h2>use of datetime-local</h2>
+  <b><label for="birthdaytime">Birthday (date and time):</label></b>
+  <input type="datetime-local" id="birthdaytime" name="birthdaytime"><br><br>
+  <hr>
+  
+  <!--use of time tag -->
+  <h2>time tag</h2>
+  <p>Open from <time>10:00</time> to <time>21:00</time> every weekday.</p>
+<p>I have a date on <time datetime="2008-02-14 20:00">Valentines day</time>.</p><br>
+
+
+<hr>
+<!-- use of week -->
+<h2>use of week</h2>
+<b><label for="week">Select a week:</label></b>
+<input type="week" id="week" name="week"><br><br>
+<hr>
+
+<!-- use of month-->
+<h2>use of month </h2>
+<b><label for="bdaymonth">Birthday (month and year):</label></b>
+  <input type="month" id="bdaymonth" name="bdaymonth">
+<hr>
+
+<!-- keygen -->
+<!-- The <keygen> tag is one of the HTML5 elements. It is responsible for generating a pair of keys (public and private),
+ that are used to encrypt and decrypt data sent to the server when an HTML form is submitted. The public key is sent to 
+ the server along with the submitted form data, and the private one is stored on the user’s local device -->
+ <h2>keygen</h2>
+
+ <keygen name="rsaPublicKey" keytype="RSA">
+        User’s name:
+        <input type="text" name="usr_name"><br>
+		</keygen> 
+<hr>
+
+<!-- hidden field -->
+<h2>use of hidden field</h2>
+<b><label for="fname">First name:</label></b>
+  <input type="text" id="fname" name="fname"><br><br>
+  <input type="hidden" id="custId" name="custId" value="3487">
+  
+  <input type="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+Serif		Times New Roman
+			Georgia
+			Garamond
+Sans-serif	Arial
+			Verdana
+			Helvetica
+Monospace	Courier New
+			Lucida Console
+			Monaco
+Cursive		Brush Script MT
+			Lucida Handwriting
+Fantasy		Copperplate
+			Papyrus
+			
+git init
+git add .
+git status
+git commit -m "First Commit"
+git config --global user.email "rnikita445@gmail.com"
+git config --global user.name "Nikitarana27"
+git remote add origin https://github.com/Nikitarana27/internship
+git push -u origin master
+
+Good evening madam,
+Today I have worked on pagination and on update of checkbox.
+

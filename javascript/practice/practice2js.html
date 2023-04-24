@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript Statements</h2>
+    <p id="demo1"></p>
+    <hr style="border: 1px solid black">
+
+
+    <!-- using const -->
+    <h2>using const</h2>
+    <p id="demo2"></p>
+
+    <hr style="border: 1px solid black">
+    <!-- strings -->
+    <h1>string</h1>
+    <p style="font-size: large;">Normal text is ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+
+    <h3>Length of String</h3>
+    <p id="demo3"></p>
+
+    <h3>text.slice(7, 13)</h3>
+    <p id="demo4"></p>
+
+    <h3>text.slice(7)</h3>
+    <p id="demo5"></p>
+
+    <h3>text.slice(-12)</h3>
+    <p id="demo6"></p>
+
+    <h3>text.substring(7, 13)</h3>
+    <p id="demo7"></p>
+
+    <h3> text.substr(-4);</h3>
+    <p id="demo8"></p>
+
+    <!-- replace -->
+    <h3>replace</h3>
+    <p style="font-size: large;">Text is this "Please visit Microsoft for more information!"</p>
+    <p id="demo9"></p>
+
+    <h3> concatination </h3>
+    <p id="demo10"></p>
+
+    <script>
+        let a, b, c;
+        a = 5;
+        b = 6;
+        c = a + b;
+        document.getElementById("demo1").innerHTML = c;
+
+
+        // using const
+        // Create an Array:
+        const cars = ["Saab", "Volvo", "BMW"];
+        // Change an element:
+        cars[0] = "Toyota";
+        // Add an element:
+        cars.push("Audi");
+        // Display the Array:
+        document.getElementById("demo2").innerHTML = cars;
+
+        /*
+        onchange	An HTML element has been changed
+        onclick	The user clicks an HTML element
+        onmouseover	The user moves the mouse over an HTML element
+        onmouseout	The user moves the mouse away from an HTML element
+        onkeydown	The user pushes a keyboard key
+        onload	The browser has finished loading the page
+        */
+
+        /*
+        \b	Backspace
+        \f	Form Feed
+        \n	New Line
+        \r	Carriage Return
+        \t	Horizontal Tabulator
+        \v	Vertical Tabulator
+        */
+
+        // length of string
+        var text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo3").innerHTML = text.length;
+        /*
+        slice(start, end)
+        substring(start, end)
+        substr(start, length)
+        */
+
+        // slice
+        var part = text.slice(7, 13);
+        document.getElementById("demo4").innerHTML = part;
+
+        var part = text.slice(7);
+        document.getElementById("demo5").innerHTML = part;
+
+        var part = text.slice(-12);
+        document.getElementById("demo6").innerHTML = part;
+
+        // var text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.getElementById("demo7").innerHTML = text.substr(7, 13);
+
+        document.getElementById("demo8").innerHTML = text.substr(-4);
+
+        let txt = "Please visit Microsoft for more information!";
+        let newText = txt.replace("Microsoft", "google");
+        document.getElementById("demo9").innerHTML = newText;
+
+        // /g flag (global match)
+        // /i flag (insensitive)
+        // replaceAll() it will replace all the word which matches with the condition
+        // toUpperCase()
+        // toLowerCase()
+        // concat() 
+
+        let text1 = "Hello";
+        let text2 = "World";
+        let text3 = text1.concat(" ", text2);
+        document.getElementById("demo10").innerHTML = text3;
+
+        // trim()
+        // trimStart()
+        // trimEnd()
+        // padStart()
+        // padEnd()
+        // charAt(position)
+        // charCodeAt(position)
+        // text.split(",")  //use to split array elements
+
+        //search string methods
+
+        // String indexOf()
+        //String lastIndexOf()
+        //String search()
+        //String match()
+        //String matchAll()
+        //String includes() //return boolean
+        //String startsWith() // return boolean
+        //String endsWith() // return boolean
+
+
+        //number methods
+
+        //toString()	Returns a number as a string
+        //toExponential()	Returns a number written in exponential notation
+        //toFixed()	Returns a number written with a number of decimals
+        //toPrecision()	Returns a number written with a specified length
+        //ValueOf()	Returns a number as a number
+
+
+        //number property
+
+        //EPSILON	The difference between 1 and the smallest number > 1.
+        //MAX_VALUE	The largest number possible in JavaScript
+        //MIN_VALUE	The smallest number possible in JavaScript
+        //MAX_SAFE_INTEGER	The maximum safe integer(253 - 1)
+        //MIN_SAFE_INTEGER	The minimum safe integer - (253 - 1)
+        //POSITIVE_INFINITY	Infinity(returned on overflow)
+        //NEGATIVE_INFINITY	Negative infinity(returned on overflow)
+        //NaN	A "Not-a-Number" value
+
+        
+    </script>
+
+</body>
+
+</html>

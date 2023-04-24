@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practical 8</title>
+</head>
+
+<style>
+    body {
+        background-image: url(../../blue\ stones.jfif);
+    }
+
+    .txt {
+        list-style-type: none;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        font-size: 25px;
+    }
+
+
+    .form {
+        margin-top: 10%;
+        margin-right: 20%;
+        margin-left: 20%;
+        padding: 5px;
+        border: 2px solid rgb(61, 61, 61);
+        border-radius: 10px;
+        background: linear-gradient(90deg, rgba(196, 196, 196, 0.2), rgba(170, 170, 170, 0.2)), url(../../yellow\ mate.jfif);
+        height: 300px;
+        color: rgb(0, 0, 0);
+        justify-content: center;
+    }
+
+    #date {
+        width: 150px;
+        height: 30px;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .submit {
+        font-size: large;
+        font-weight: bold;
+        border-radius: 5px;
+        color: rgb(0, 0, 0);
+        background-color: #1e96e1;
+    }
+
+    .error {
+        font-size: small;
+        color: blue;
+    }
+</style>
+
+<body>
+    <div class="txt form">
+        <form>
+            <div style="display:flex;">
+                Please enter first number :&nbsp;
+                <input type="text" id="num1" onchange="change()">&nbsp;
+                <span id="number1" class="error"></span>
+            </div>
+            <div style="display:flex;">
+                Please enter second number :&nbsp;
+                <input type="text" id="num2" onchange="change()">
+                <span id="number2" class="error"></span>
+            </div>
+            <div>
+                <input type="radio" name="operator" id="1" value="+" />Addition<br>
+                <input type="radio" name="operator" id="2" value="-" />Subtraction<br>
+                <input type="radio" name="operator" id="3" value="*" />Multiplication<br>
+                <input type="radio" name="operator" id="4" value="/" />Division<br>
+                <span id="operator_msg" class="error"></span>
+            </div>
+            <div style="text-align: center;">
+                <input type="button" value="calculate" class="submit" onclick="calculate()">
+                <input type="button" value="reset" class="submit" onclick="erase()">
+            </div>
+            <div id="msg" class="li"></div>
+        </form>
+    </div>
+   
+    
+</body>
+<script src="./prac9.js">
+
+</script>
+
+</html>

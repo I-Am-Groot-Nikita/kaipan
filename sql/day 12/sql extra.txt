@@ -1,0 +1,119 @@
+
+
+Fname  Lname  DoBAddress  
+Aman  Shah  06-01-1982 Bhopal
+Aman  Shah  06-01-1982 Bhopal
+Ravi  Yadav  28-09-1984 ManiNagar
+Ravi  Yadav  28-09-1984 ManiNagar
+
+create table extra_1_35 ( Fname varchar(200),  Lname varchar(200),  DoB date ,Address varchar(200));
+
+insert into extra_1_35 (Fname,Lname,DoB,Address) 
+values
+("Aman","Shah","1982-01-06","Bhopal"),
+("Aman","Shah","1982-01-06","Bhopal"),
+("Ravi","Yadav","1984-09-28","ManiNagar"),
+("Ravi","Yadav","1984-09-28","ManiNagar");
+
+---------------------------------
+            working 
+--------------------------------
+-------------------------------------
+                1
+-------------------------------------
+CREATE TABLE temp_35 LIKE extra_35;
+INSERT INTO temp_35
+    SELECT DISTINCT * FROM extra_35;
+DROP TABLE extra_35;
+RENAME TABLE temp_35 TO extra_35;
+select * from extra_35;
+-------------------------------------
+                2
+-------------------------------------
+DELETE S1 FROM extra_1_35 AS S1  
+INNER JOIN extra_1_35 AS S2   
+WHERE S1.id < S2.id AND S1.email = S2.email;  
+-------------------------------------
+                2
+-------------------------------------
+SELECT Fname,Lname,DoB,Address, ROW_NUMBER()  AS row_num   
+FROM extra_1_35;  
+
+
+---------------------------------
+            not working 
+--------------------------------
+//will delet all value
+ DELETE dup FROM
+(SELECT ROW_NUMBER() OVER (PARTITION BY Fname,Lname,DoB,Address  ORDER BY Fname) cnt
+ FROM extra_1_35)  dup
+WHERE dup.Cnt > 1;
+
+ 
+
+select *, @row = @row+1 as r 
+from extra_1_35, (select @row := 0) as rn 
+group by Fname,Lname,DoB,Address;
+
+select *, @row = @row+1 as r 
+from extra_1_35, (select @row := 0) as rn;
+
+---------------------------------
+            not working 
+--------------------------------
+DELETE S1 FROM (select *, @row = @row+1 as r
+from extra_1_35, (select @row = 0) as rn) AS S1
+INNER JOIN  (select *, @row = @row+1 as r
+from extra_1_35, (select @row = 0) as rn) AS S2
+WHERE S1.r < S2.r AND S1.Fname = S2.Fname;
+
+select r from (select *, @row := @row+1 as r
+from extra_1_35, (select @row := 0) as rn) as t
+where r in (select @row := @row+1 as r
+from extra_1_35, (select @row := 0) as rn group by Fname,Lname,DoB,Address) 
+
+---------------------------------
+            not working 
+--------------------------------
+SELECT Fname,Lname,DoB,Address,     
+LEAD((select @row := 0),1) OVER (  
+PARTITION BY Fname  
+ORDER BY Lname ) AS Next_Sale    
+FROM extra_1_35;  
+
+---------------------------------
+            not working 
+--------------------------------
+delimiter &&
+begin
+label1: LOOP
+    SET p1 = p1 + 1;
+    IF p1 < 10 THEN
+      ITERATE label1;
+    END IF;
+  LEAVE label1;
+  END LOOP label1;
+end&&
+delimiter ;
+
+---------------------------------
+            not working 
+--------------------------------
+create view with_row_number
+as
+select *, @row := @row+1 as r
+from extra_1_35,@row := 0 as rs;
+
+---------------------------------
+            not working 
+---------------------------------
+DELIMITER $$
+BEGIN
+set @counter := 1;
+    WHILE @counter <= 5
+        select @counter;
+        SET @counter := @counter + 1;
+    END WHILE;
+
+END$$
+DELIMITER ;

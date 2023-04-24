@@ -1,0 +1,359 @@
+=========================================================================================
+DATABASE :
+=========================================================================================
+
+Assume a hypothetical company that manages multiple automobile dealerships throughout INDIA.
+
+Following are the data requirements of our company :
+
+* A "car" is described by a vehicle identification number (VIN), make (e.g., Toyota), model (e.g., Prius), year, mileage, and two prices: the asking price (how much the dealership would like to sell the car for) and the invoice price (how much the dealership paid for the car). This information is maintained for every car currently in any dealership's inventory, and also for every car that has ever been sold by one of the dealerships. 
+
+* A dealership is a single location where the company sells cars. The company manages many dealerships, each one being described by a unique dealership ID, a name (e.g., Honda Sales, Yamaha World, Concept Hyundai etc.), street address, city, and state.
+
+* The company employs a number of salespeople. Each salesperson is assigned a unique salesperson ID. 
+
+* Salespeople work at one or more dealerships each month, and are paid a monthly base salary at each, regardless of how many cars they sell. Additionally, they are paid a commission on each car they sell. 
+
+* Information is maintained about all salespeople who ever worked for any dealership.
+
+* The following information is kept about each customer : ID, name, street address, city, and state.
+
+* Salespeople are arranged in a strict hierarchy, with each salesperson reporting to a "managing salesperson."
+
+* It is necessary to keep track of the inventory of cars currently available at each dealership. Of course, a particular car can only be in the inventory of one dealership at any given time.
+
+* A long-term record of all car sales is maintained. For each sale, the company tracks which car was bought, which customer bought it, which salesperson sold it, which dealership it was sold by, at which price it was sold for, and on which date it was sold.
+
+   i. car (carid, vin, make, model, year, mileage(kpl), askprice, invoiceprice)
+  ii. dealership (dealershipid, name, address, city, state)
+ iii. salesperson (salespersonid, name)
+  iv. customer (customerid, name, address, city, state)
+   v. reportsto (reportstoid, salespersonid, managingsalespersonid)
+  vi. worksat (worksatid, salespersonid, dealershipid, monthworked, basesalaryformonth)
+ vii. inventory (inventoryid, vin, dealershipid)
+viii. sale (saleid, vin, customerid, salespersonid, dealershipid, saleprice, saledate)
+
+create table car_35 
+(
+        carid int(52), 
+        vin varchar(200), 
+        make varchar(200), 
+        model varchar(220), 
+        year int(52), 
+        mileage int(52), 
+        askprice decimal(52,2) , 
+        invoiceprice decimal(52,2)
+        );
+
+insert into car_35 (carid, vin, make, model, year, mileage, askprice, invoiceprice)
+values
+(1,"1HGBH41JXMN109186","honda","jazz",2019,20,500000,400000),
+(2,"1HGBH41JXMN109187","honda","amaze",2022,25,800000,700000),
+(3,"4S3BMHB68B3286051","toyota","fortuner",2017,25,900000,800000),
+(4,"4S3BMHB68B3286050","toyota","vellfire",2023,30,600000,550000),
+(5,"2HNYD2H30DH50804S","renault","kiger",2017,28,300000,200000),
+(6,"2HNYD2H30DH50803S","renault","triber",2016,27,1000000,900000),
+(7,"JT152EEA100302159","maruti suzuki","indica",2021,26,300000,250000),
+(8,"4T1BK36B59U350996","tata","nexon",2022,33,200000,150000),
+(9,"4T1BK36B59U350997","tata","altroz",2022,31,500000,350000);
+
+create table dealership_35 
+(
+        dealershipid int(52) primary key, 
+        name varchar(220), 
+        address varchar(250), 
+        city varchar(220), 
+        state varchar(200));
+
+insert into dealership_35 (dealershipid, name, address, city, state)
+values
+(1,"Concept Hyundai","shiv sakti nagar","Ahmedabad","India"),
+(2,"Yamaha World","makarpura","vadodara","India"),
+(3,"Honda Sales","shiv sakti nagar","Ahmedabad","India"),
+(4,"toyota group","airport circle","surat","India"),
+(5,"yo tata","thaltej","Ahmedabad","India"),
+(6,"yamaha world","makarpura","vadodara","India");
+
+create table salesperson_35 (
+        salespersonid int(52) primary key, 
+        name varchar(220));
+
+insert into salesperson_35(salespersonid, name)
+values
+(1,"kamal bhai rana"),
+(2,"komal ben shah"),
+(3,"aman khan"),
+(4,"aamir khanna"),
+(5,"isha dobariya"),
+(6,"rumit kariya");
+
+create table customer_35 (
+        customerid int(52) primary key, 
+        name varchar(220), 
+        address varchar(220), 
+        city varchar(220), 
+        state varchar(220));
+
+insert into customer_35 (customerid, name, address, city, state)
+values
+(6,"nikita rana","science city","Ahmedabad","India"),
+(5,"om gandhi","kalupur","Ahmedabad","India"),
+(4,"trusha gamit","varacha","surat","India"),
+(3,"jexa patel","utran","surat","India"),
+(2,"abhi katariya","makarpura","vadodara","India"),
+(1,"amisha singh","chani","vadodara","India");
+
+create table reportsto_35 (
+        reportstoid int(52) primary key, 
+        salespersonid int(52), 
+        managingsalespersonid int(52));
+
+insert into reportsto_35(reportstoid, salespersonid, managingsalespersonid)
+values
+(1,1,111),
+(2,3,222),
+(3,5,333),
+(4,6,444),
+(5,4,555),
+(6,3,666);
+
+create table worksat_35 (
+        worksatid int(52) primary key, 
+        salespersonid int(52), 
+        dealershipid int(52), 
+        monthworked int(52), 
+        basesalaryformonth decimal(52,2));
+
+insert into worksat_35(worksatid, salespersonid, dealershipid, monthworked, basesalaryformonth)
+values
+(1,1,6,5,3000),
+(2,3,5,3,2000),
+(3,6,3,4,1000),
+(4,5,4,1,3000),
+(5,4,2,6,1000),
+(6,2,1,2,2000);
+
+create table inventory_35 (
+        inventoryid int(52) primary key, 
+        vin varchar(200), 
+        dealershipid int(52));
+
+insert into inventory_35(inventoryid, vin, dealershipid)
+values
+(1,"1HGBH41JXMN109186",6),
+(2,"1HGBH41JXMN109187",2),
+(3,"4S3BMHB68B3286051",5),
+(4,"4S3BMHB68B3286050",3),
+(5,"2HNYD2H30DH50804S",4);
+
+
+create table sale_35 (
+        saleid int(52) primary key, 
+        vin varchar(200), 
+        customerid int(52), 
+        salespersonid int(52), 
+        dealershipid int(52), 
+        saleprice decimal(52,2), 
+        saledate date);
+
+insert into sale_35 (saleid, vin, customerid, salespersonid, dealershipid, saleprice, saledate)
+values
+(1,"1HGBH41JXMN109186",2,1,6,400000,"2020-01-12"),
+(2,"1HGBH41JXMN109187",5,2,5,700000,"2020-02-22"),
+(3,"2HNYD2H30DH50803S",1,3,3,800000,"2020-03-22"),
+(4,"JT152EEA100302159",6,4,2,550000,"2020-04-23"),
+(5,"4T1BK36B59U350996",3,5,4,200000,"2020-05-31"),
+(6,"4T1BK36B59U350997",4,6,1,900000,"2020-06-30");
+
+Calculate the payroll for the month of March 2007.
+	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
+        * The gross pay is calculated as the base salary at each dealership employing the salesperson that month, along with the total commission for the salesperson that month.
+        * The total commission for a salesperson in a month is calculated as 5% of the profit made on all cars sold by the salesperson that month.
+        * The profit made on a car is the difference between the sale price and the invoice price of the car. (Assume, that cars are never sold for less than the invoice price.)
+
+
+
+
+
+
+
+=========================================================================================
+QUERIES :
+=========================================================================================
+
+
+1. Find the names of all salespeople who have ever worked for the company at any dealership.
+
+
+
+select s.name 
+from worksat_35 w
+inner join salesperson_35 s  on w.salespersonid=s.salespersonid
+inner join dealership_35 d on w.dealershipid= d.dealershipid;
+ 
+2. List the Name, Street Address, and City of each customer who lives in Ahmedabad.
+
+select name "Name" ,address "Street Address" , city "City"
+from customer_35 
+where city = "Ahmedabad";
+
+
+3. List the VIN, make, model, year, and mileage of all cars in the inventory of the dealership named "Hero Honda Car World".
+
+select c.vin "VIN", c.make "make", c.model "Model", c.year "Year" ,c.mileage "Mileage"
+from car_35 c 
+inner join inventory_35 i on i.vin = c.vin 
+inner join dealership_35 d on d.dealershipid=i.dealershipid 
+where d.name = "Hero Honda Car World" ;
+
+4. List names of all customers who have ever bought cars from the dealership named "Concept Hyundai".
+
+select c.name " Name "
+from sale_35 s 
+inner join dealership_35 d on d.dealershipid = s.dealershipid 
+inner join customer_35 c on s.customerid = c.customerid
+where d.name ="Concept Hyundai";
+
+5. For each car in the inventory of any dealership, list the VIN, make, model, and year of the car, along with the name, city, and state of the dealership whose inventory contains the car.
+
+select c.vin "VIN", c.make "make" , c.model "model", c.year "year", d.name "dealer name", d.city "city", d.state "state"
+from inventory_35 i 
+left join car_35 c on c.vin = i.vin
+left join dealership_35 d on  d.dealershipid = i.dealershipid;
+
+
+6. Find the names of all salespeople who are managed by a salesperson named "Adam Smith".
+
+select s.name "Name"
+from salesperson_35 s
+inner join reportsto_35 r on r.salespersonid = s.salespersonid
+where r.managingsalespersonid = (select salespersonid from salesperson_35 where name = "Adam Smith");
+
+7. Find the names of all salespeople who do not have a manager.
+
+select s.name "Name"
+from salesperson_35 s
+inner join reportsto_35 r on r.salespersonid = s.salespersonid
+where s.salespersonid not in (select managingsalespersonid from reportsto_35);
+
+8. Find the total number of dealerships.
+
+select count(dealershipid) "Number of dealership" from dealership_35;
+
+9. List the VIN, year, and mileage of all "Toyota Camrys" in the inventory of the dealership named "Toyota Performance". (Note that a "Toyota Camry" is indicated by the make being "Toyota" and the model being "Camry".)
+
+select c.vin "VIN",c.year "year", c.mileage "Mileage"
+from inventory_35 i 
+left join car_35 c on c.vin = i.vin
+left join dealership_35 d on  d.dealershipid = i.dealershipid
+where c.make = "toyoto" and c.model = "camry" and d.name = "Toyota Performance";
+
+select c.vin "VIN",c.year "year", c.mileage "Mileage"
+from inventory_35 i 
+left join car_35 c on c.vin = i.vin
+left join dealership_35 d on  d.dealershipid = i.dealershipid
+where c.make = "renault" and c.model = "kiger" and d.name = "Toyota Performance";
+
+10. Find the name of all customers who bought a car at a dealership located in a state other than the state in which they live.
+
+select c.name " Name "
+from sale_35 s 
+inner join dealership_35 d on d.dealershipid = s.dealershipid 
+inner join customer_35 c on s.customerid = c.customerid
+where c.state != d.state;
+
+
+11. Find the name of the salesperson that made the largest base salary working at the dealership named "Ferrari Sales" during January 2007.
+
+select s.name
+from worksat_35 w
+inner join salesperson_35 s  on w.salespersonid=s.salespersonid
+inner join dealership_35 d on w.dealershipid= d.dealershipid
+inner join sale_35 sa
+where sa.saledate like '2020-02-__' and d.name = "yo tata"
+group by d.name
+having max(basesalaryformonth);
+
+
+12. Find the salesperson ID and name of all salespeople who have worked at each one of the company's dealerships at some point in time.
+
+select s.salespersonid "salesperson ID", s.name "Name"
+from salesperson_35 s
+inner join worksat_35 w on s.salespersonid = w.salespersonid
+inner join dealership_35 d on w.dealershipid = d.dealershipid
+group by s.name
+having count(s.salespersonid)= (select count(dealershipid) from worksat_35);
+
+
+13. List the name, street address, city, and state of any customer who has bought more than two cars from all dealerships combined since January 1, 2007.
+
+select c.name "Name", c.address "street address" , c.city "City", c.state "State"
+from customer_35 c
+inner join sale_35 sa on c.customerid = sa.customerid
+inner join dealership_35 d on sa.dealershipid = d.dealershipid
+where sa.saledate > "2007-01-01"
+group by c.name
+having count(d.dealershipid) > 2;
+
+14. List the name, salesperson ID, and total sales amount for each salesperson who has ever sold at least one car. The total sales amount for a salesperson is the sum of the sale prices of all cars ever sold by that salesperson.
+
+
+select s.salespersonid "ID" , s.name "saler name" , sum(saleprice) "Total sales amount"
+from salesperson_35 s 
+inner join sale_35 sa on s.salespersonid = sa.salespersonid
+group by s.name
+order by s.salespersonid;
+
+15. Find the names of all customers who bought cars during 2007 who were also salespeople during 2007. For the purpose of this query, assume that no two people have the same name.
+
+select c.name
+from customer_35 c
+inner join sale_35 sa on c.customerid = sa.customerid
+where sa.saledate like '2007%' and c.name in
+(select ss.name
+from salesperson_35 ss
+inner join sale_35 ssa on ss.salespersonid = ssa.salespersonid where ssa.saledate like '2007%');
+
+select c.name
+from customer_35 c
+inner join sale_35 sa on c.customerid = sa.customerid
+inner join salesperson_35 s on s.salespersonid = sa.salespersonid
+where sa.saledate like '2007%' and c.name = s.name;
+
+
+16. Find the name and salesperson ID of the salesperson who sold the most cars for the company at dealerships located in Gujarat between March 1, 2007 and March 31, 2007.
+
+select s.name "Name",s.salespersonid "salesperson ID"
+from salesperson_35 s
+inner join sale_35 sa on s.salespersonid = sa.salespersonid
+inner join dealership_35 d on sa.dealershipid = d.dealershipid
+where d.state = "gujarat" and sa.saledate like '2007-03-__'
+group by s.name
+having count(sa.salespersonid) = (select max(counts) from (select count(*) "counts" from sale_35 group by salespersonid) as t);
+
+
+17. Calculate the payroll for the month of March 2007.
+	* The payroll consists of the name, salesperson ID, and gross pay for each salesperson who worked that month.
+        * The gross pay is calculated as the base salary at each dealership employing the salesperson that month, along with the total commission for the salesperson that month.
+        * The total commission for a salesperson in a month is calculated as 5% of the profit made on all cars sold by the salesperson that month.
+        * The profit made on a car is the difference between the sale price and the invoice price of the car. (Assume, that cars are never sold for less than the invoice price.)
+
+
+select s.salespersonid "ID" , s.name "saler name" ,
+(basesalaryformonth+(((sum(sa.saleprice-c.invoiceprice))*5)/100)) "Total sales amount"
+from salesperson_35 s
+inner join sale_35 sa on s.salespersonid = sa.salespersonid
+inner join car_35 c on c.vin = sa.vin
+inner join worksat_35 w on w.salespersonid = s.salespersonid
+where sa.saledate like '2007-03-__'
+group by s.name;
+
+
+   i. car (carid, vin, make, model, year, mileage(kpl), askprice, invoiceprice)
+  ii. dealership (dealershipid, name, address, city, state)
+ iii. salesperson (salespersonid, name)
+  iv. customer (customerid, name, address, city, state)
+   v. reportsto (reportstoid, salespersonid, managingsalespersonid)
+  vi. worksat (worksatid, salespersonid, dealershipid, monthworked, basesalaryformonth)
+ vii. inventory (inventoryid, vin, dealershipid)
+viii. sale (saleid, vin, customerid, salespersonid, dealershipid, saleprice, saledate)

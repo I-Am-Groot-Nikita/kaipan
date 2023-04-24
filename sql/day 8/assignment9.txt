@@ -1,0 +1,73 @@
+	
+Table Used: 
+	
+	-   newstudent (recid, surname, firstname, middlename, gender, admitdate, endeffdt)
+
+ CREATE TABLE newstudent_trainee_35
+ (recid INT(52) PRIMARY KEY, surname VARCHAR(255) NOT NULL, firstname VARCHAR(255) NOT NULL, middlename VARCHAR(255) NOT NULL,
+  gender BOOLEAN NOT NULL, admitdate DATE NOT NULL, endeffdt DATE NOT NULL);
+
+insert into newstudent_trainee_35 (recid, surname, firstname, middlename, gender, admitdate, endeffdt)values
+(1091,"rana","nikita","jayesh",0,"2006-05-27","2022-12-20"),
+(1092,"kariya","prarthana","rumit",0,"2002-04-26","2022-11-20"),
+(1093,"dobariya","rumit","dshuy",1,"2005-10-24","2022-10-20"),
+(1094,"patel","jexa","ugca",0,"2006-06-21","2022-09-20"),
+(1095,"gamit","Mr.arpit","qaac",1,"2007-12-20","2022-08-20"),
+(1096,"gandhi","om","qaefxz",1,"2006-09-19","2022-12-20"),
+(1097,"ojha","Dr.ayushi","hjfs",0,"2002-08-18","2022-07-20"),
+(1098,"rana","jayesh","ghrv",1,"2010-07-10","2022-06-20"),
+(1099,"chopra","priyanka","tjruydfg",0,"1999-01-2","2022-05-20");
+
+NOTE :	[I] Please specify the CREATE query for above table as well.
+	[II] In all below queries, fetch and display "Name" field in this format :  
+	"Surname Firstname Middlename".
+	[III] "endeffdt" represents date on which a particular student record was deleted. Hence fetch only active student records from above table.
+
+Q-1	List out the information of students whose surname is "Shah".
+
+select CONCAT_WS(" ",surname,firstname,middlename) "Name" from newstudent_trainee_35 where surname like 'Shah' and endeffdt > now();
+
+Q-2	List out the information of all the Male students.
+
+select concat_ws(" ",surname,firstname,middlename) "Name" from newstudent_trainee_35 where gender = 1 and endeffdt > now();
+
+Q-3	List out the information of all the Female students, whose surname is "Patel" or have 	been admitted after than 1-Jan-2006.
+
+select concat_ws(" ",surname,firstname,middlename) "Name"
+from newstudent_trainee_35
+where gender = 0 and endeffdt > now() and (surname like 'Patel' or admitdate > '2006-01-1');
+
+Q-4	List out the information of all the students whose second name ends with "Bhai".
+
+select concat_ws(" ",surname,firstname,middlename) "Name" from newstudent_trainee_35 where middlename like '%Bhai' and endeffdt > now(); 
+
+Q-5	List out the information of all the students whose first name starts with "M" and 	second name has "ant".
+
+select concat_ws(" ",surname,firstname,middlename) "Name" from newstudent_trainee_35 where firstname like 'M%ant' and endeffdt > now() ; 
+
+Q-6	List out the information of all the students whose surname has "c" in the third place.
+
+select concat_ws(" ",surname,firstname,middlename) "Name"  from newstudent_trainee_35 where surname like '__c%' and endeffdt > now() ; 
+
+Q-7	List the name's of the all the students in "Ekta R. Patel" format.
+
+select concat(firstname," ", substring(middlename,1,1) ,". ",surname) as "Full name" from newstudent_trainee_35 where endeffdt > now();
+
+Q-8	List out First Name as well as its respective length for all the students.
+
+select firstname "First name", length(firstname) "Length" from newstudent_trainee_35 where endeffdt > now();
+
+Q-9	Append the First Name with "bhai" for all the male students whose First Name does not contain "bhai".
+
+update newstudent_trainee_35
+set firstname = concat(firstname," bhai")  
+where gender = 1 and firstname not like "%bhai" and endeffdt > now() ;
+
+Q-10	List out First Name of all the male students with "Mr." before the First Name.
+
+select firstname "First Name" from newstudent_trainee_35 where gender = 1 and endeffdt > now() and firstname like 'Mr.%';
+
+Q-11	List out First Name of all the students which sounds like "Mira".
+
+select concat_ws(" ",surname,firstname,middlename) "Name" from newstudent_trainee_35 where endeffdt > now() and firstname sounds like 'mira'; 
+

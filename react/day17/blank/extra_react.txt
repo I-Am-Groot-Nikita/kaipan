@@ -1,0 +1,141 @@
+--------------------------------
+npx create-react-app my-react-app
+--------------------------------
+npx to install from npm 
+create-react-app  tool is an officially supported way to create React applications.
+my-react-app this is an name of application
+
+
+
+------------------------------------
+Note: If you've previously installed create-react-app globally, it is recommended that you uninstall the package to ensure npx always uses the latest version of create-react-app. To uninstall, run this command: npm uninstall -g create-react-app.
+-----------------------------------
+
+
+----------------------------------
+reactDOM.render()
+-----------------------------------
+ ReactDOM.render() function takes two arguments, HTML code and an HTML element.
+
+
+
+ --------------------
+ class
+-------------------------
+in react class should be return has className
+
+
+---------------------------
+React.Component
+----------------------------
+A class component must include the extends React.Component statement. 
+
+
+
+-------------------------------
+constructor Component
+-------------------------------
+If there is a constructor() function in your component, this function will be called when the component gets initiated.
+
+
+-------------------------------
+Lifecycle of Components
+-------------------------------
+Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
+The three phases are: Mounting, Updating, and Unmounting.
+
+-------------------------------
+Mounting
+-------------------------------
+Mounting means putting elements into the DOM.
+React has four built-in methods that gets called, in this order, when mounting a component:
+
+1)constructor()
+2)getDerivedStateFromProps()    
+    //The getDerivedStateFromProps() method is called right before rendering the element(s) in the DOM
+    //updates the favorite color based on the favcol attribute
+3)render()
+4)componentDidMount()
+5)the render() method is required and will always be called, the others are optional and will be called if you define them.
+
+-------------------------------
+Updating
+-------------------------------
+1)getDerivedStateFromProps()
+2)shouldComponentUpdate()
+    // if true then change is possible
+    // if false then change is not possible
+3)render()
+4)getSnapshotBeforeUpdate()
+5)componentDidUpdate()
+
+-------------------------------
+Unmounting
+-------------------------------
+componentWillUnmount()
+
+
+-------------------------------
+props
+-------------------------------
+Props are arguments passed into React components.
+Props are passed to components via HTML attributes
+React Props are like function arguments in JavaScript
+
+--------------------------------
+Adding Events
+--------------------------------
+React events are written in camelCase syntax:
+onClick instead of onclick.
+React event handlers are written inside curly braces:
+onClick={shoot}  instead of onClick="shoot()"
+
+--------------------------------
+React Conditional Rendering
+--------------------------------
+if Statement
+Logical && Operator
+Ternary Operator
+
+
+--------------------------------
+useState
+--------------------------------
+Import useState                 import { useState } from "react";
+Initialize useState             function FavoriteColor() {
+                                const [color, setColor] = useState("");
+                                }
+Read State                      return <h1>My favorite color is {color}!</h1>
+Update State                    <h1>My favorite color is {color}!</h1>
+                                <button type="button" onClick={() => setColor("blue")}>Blue</button>
+
+
+--------------------------------
+memo
+--------------------------------                              
+Using memo will cause React to skip rendering a component if its props have not changed.
+This can improve performance.
+
+
+
+--------------------------------
+hooks
+--------------------------------    
+Hooks
+Hook Rules
+There are 3 rules for hooks:
+
+Hooks can only be called inside React function components.
+Hooks can only be called at the top level of a component.
+Hooks cannot be conditional
+
+
+
+--------------------------------
+react bootstrap
+--------------------------------    
+npm install react-bootstrap bootstrap
+
+
+
+

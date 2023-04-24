@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition</title>
+    <style>
+        .transition {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: width 1s;
+            /* transition-delay: 1s; */
+        }
+
+        .transition:hover {
+            width: 500px;
+        }
+
+        .transition2 {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: width 2s, height 2s;
+        }
+
+        .transition2:hover {
+            width: 300px;
+            height: 300px;
+        }
+
+        /* transform + transition */
+        .tt {
+            width: 100px;
+            height: 100px;
+            background: aqua;
+            transition: width 2s, height 2s, transform 2s;
+            /* transition-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1); */
+        }
+
+        .tt:hover {
+            width: 300px;
+            height: 300px;
+            transform: rotate(180deg);
+        }
+
+        /* delay in transition */
+        .delayT {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: width 2s;
+            transition-delay: 1s;
+        }
+
+        .delayT:hover {
+            width: 500px;
+        }
+
+        /* animation */
+        .animation {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            animation-name: animation_example;
+            animation-duration: 5s;
+            
+        }
+
+        @keyframes animation_example {
+            from {background-color: aqua;}
+            to {background-color: brown; }
+        }
+
+        /* animation duration using percentage */
+        .animPercentage {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            animation-name: percentage;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        @keyframes percentage {
+            0% {background-color: aqua; }
+            25% {background-color: blue;}
+            50% {background-color: red; }
+            75% {background-color: yellow;}
+            100% {background-color: aqua; }
+        }
+
+        /* movinf animation */
+        .movingAnim {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: relative;
+            animation-name: movinganim;
+            animation-duration: 6s;
+            animation-iteration-count: 3;  /* will show how many times the animation is going to perform*/
+        }
+
+        @keyframes movinganim {
+            0% {background-color: red; left: 0px;top: 0px;}
+            25% {background-color: yellow; left: 200px;top: 0px;}
+            50% {background-color: blue; left: 200px;top: 200px; }
+            75% {background-color: green; left: 0px;top: 200px;}
+            100% {background-color: red; left: 0px;top: 0px;}
+        }
+
+        /* reverse direction */
+        .animDirection {
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            position: relative;
+            animation-name: animdirection;
+            animation-duration: 6s;
+            animation-iteration-count: 3;  /* will show how many times the animation is going to perform*/
+            animation-direction: reverse;
+        }
+
+        @keyframes animdirection {
+            0% {background-color: red; left: 0px;top: 0px;}
+            25% {background-color: yellow; left: 200px;top: 0px;}
+            50% {background-color: blue; left: 200px;top: 200px; }
+                75% {background-color: green; left: 0px;top: 200px;}
+                100% {background-color: red; left: 0px;top: 0px;}
+            }
+
+        /* perspective  */
+        .cube {
+          font-size: 4em;
+          width: 2em;
+          margin: 1.5em auto;
+          transform-style: preserve-3d;
+          transform: rotateX(-45deg) rotateY(30deg);
+        }
+    
+        .side {
+          position: absolute;
+          width: 2em;
+          height: 2em;
+          background: rgba(100,100,100,0.5);
+          border: 1px solid red;
+          text-align: center;
+          line-height: 2em;
+        }
+    
+        .front {transform: translateZ(1em);}
+        .top {transform: rotateX(90deg) translateZ(1em);}
+        .right {transform: rotateY(90deg) translateZ(1em);}
+        .left {transform: rotateY(-90deg) translateZ(1em);}
+        .bottom {transform: rotateX(-90deg) translateZ(1em);}
+        .back {transform: rotateY(-180deg) translateZ(1em);}
+    
+        .ex1 {
+          perspective: 950px;
+        } 
+        </style>
+    </head>
+
+    <body>
+    <h2>perspective</h2>
+    <div class="ex1">
+      <div class="cube">
+      <div class="side front">1</div>
+      <div class="side back">6</div>
+      <div class="side right">4</div>
+      <div class="side left">3</div>
+      <div class="side top">5</div>
+      <div class="side bottom">2</div>
+      </div>
+    </div>
+
+
+    <h1>transition effect</h1>
+    <!-- transition
+    transition-delay
+    transition-duration
+    transition-property
+    transition-timing-function -->
+    <div class="transition"></div><br>
+
+
+    <div class="transition2"></div>
+    <!-- 
+    {transition-timing-function: linear;}
+    {transition-timing-function: ease;}
+    {transition-timing-function: ease-in;}
+    {transition-timing-function: ease-out;}
+    {transition-timing-function: ease-in-out;} -->
+
+    <!-- transition-delay: 1s; -->
+
+    <!-- transition with transformation -->
+    <h2>Transition with Transformation</h2>
+    <div class="tt"></div>
+
+    <!-- delay in transition -->
+    <h2>delay in transition</h2>
+    <div class="delayT"></div>
+
+    <hr style="border: 1px solid black">
+
+    <!-- animation -->
+    <h1>Animation</h1>
+    <div class="animation"></div>
+
+    <!-- animation duration using percentage -->
+    <h2>animation duration using percentage</h2>
+    <div class="animPercentage"></div>
+
+    <h2>moving object</h2>
+    <div style="border: 1px solid black; width: 300px; height: 300px;">
+        <div class="movingAnim"></div>
+    </div>
+
+    <!-- animation-direction -->
+    <h2>animation-direction</h2>
+    <!-- normal - The animation is played as normal (forwards). This is default
+    reverse - The animation is played in reverse direction (backwards)
+    alternate - The animation is played forwards first, then backwards
+    alternate-reverse - The animation is played backwards first, then forwards -->
+    <div style="border: 1px solid black; width: 300px; height: 300px;">
+        <div class="animDirection"></div>
+    </div>
+
+    <!-- animation-fill-mode property specifies a style for the target element when the animation is not playing -->
+    <!-- none,forwards,backwards,both -->
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    /* general css for navbar */
+    ul.sidenav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 20%;
+      background-color: #f1f1f1;
+      position: fixed;
+      height: 100%;
+      /* z-index: -1; */
+      overflow: auto;
+    }
+
+    ul.sidenav li a {
+      display: block;
+      color: #000;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+
+    ul.sidenav li a.active {
+      background-color: #00b4d8;
+      color: white;
+    }
+
+    ul.sidenav li a:hover:not(.active) {
+      background-color: #555;
+      color: white;
+    }
+
+    div.content {
+      margin-left: 20%;
+      padding: 1px 16px;
+      height: 1000px;
+      /* z-index: -1; */
+    }
+
+    /* css for navbar 900px */
+    @media screen and (max-width: 900px) {
+      ul.sidenav {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      ul.sidenav li a {
+        float: left;
+        padding: 15px;
+      }
+
+      div.content {
+        margin-left: 0;
+      }
+    }
+
+
+    /* css of navbar for screen 400px */
+    @media screen and (max-width: 400px) {
+
+      ul.sidenav li a {
+        text-align: center;
+        float: none;
+      }
+    }
+
+
+    /* body image gallary */
+    div.gallery {
+      border: 1px solid #ccc;
+    }
+
+    div.gallery:hover {
+      border: 1px solid #777;
+    }
+
+    div.gallery img {
+      width: 100%;
+      height: auto;
+    }
+
+    div.desc {
+      padding: 15px;
+      text-align: center;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .responsive {
+      padding: 0 6px;
+      float: left;
+      width: 24.99999%;
+      /* z-index: -1; */
+    }
+
+    @media only screen and (max-width: 700px) {
+      .responsive {
+        width: 49.99999%;
+        margin: 6px 0;
+      }
+    }
+
+    @media only screen and (max-width: 500px) {
+      .responsive {
+        width: 100%;
+      }
+    }
+
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+
+    /* footer */
+
+    .footer {
+      list-style-type: none;
+      /* margin-left: 20%; */
+      bottom: 0;
+      padding: 13px;
+      width: 100%;
+      background-color: #8a8a8a;
+      position: fixed;
+      /* z-index: 2; */
+      overflow: auto;
+      height: auto;
+      text-align: center;
+
+    }
+
+    .footer a {
+      text-decoration: none;
+      color: #000;
+      display: inline-block;
+    }
+
+    .footer a:hover {
+      color: #ccc;
+      background-color: #000;
+    }
+
+    @media screen and (max-width: 900px) {
+      .footer {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+        position: relative;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      .footer {
+        width: 100%;
+        margin: 0;
+        position: relative;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navbar -->
+  <ul class="sidenav">
+    <li><a class="active" href="#home">Home</a></li>
+    <li><a href="#news">News</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+
+
+  <!--  body image gallary  -->
+  <div class="content">
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img1.jpg">
+          <img src="img1.jpg" alt="Cinque Terre" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+
+
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img2.jpg">
+          <img src="img2.jpg" alt="Forest" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img3.jpg">
+          <img src="img3.jpg" alt="Northern Lights" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img4.jpg">
+          <img src="img4.jpg" alt="Mountains" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img4.jpg">
+          <img src="img4.jpg" alt="Mountains" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img3.jpg">
+          <img src="img3.jpg" alt="Mountains" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img1.jpg">
+          <img src="img1.jpg" alt="Mountains" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+    <div class="responsive">
+      <div class="gallery">
+        <a target="_blank" href="img2.jpg">
+          <img src="img2.jpg" alt="Mountains" width="600" height="400">
+        </a>
+        <div class="desc">Add a description of the image here</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer -->
+
+  <!-- <ul class="footer">
+    <li><a href="#news">News</a></li>
+    <li><a href="#">|</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#">|</a></li>
+    <li><a href="#about">About</a></li>
+  </ul> -->
+  <div class="footer">
+    <a href="#news">News</a> | <a href="#contacts">Contacts</a> | <a href="#about">About Us</a>
+  </div>
+
+</body>
+
+</html>

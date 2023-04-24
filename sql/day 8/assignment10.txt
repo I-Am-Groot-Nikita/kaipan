@@ -1,0 +1,183 @@
+Tables Used:
+===========
+	Table - I :	officestaff
+	Fields	:	recid (Primary Key), name, designation, salary, overtimesalary, bossno, addressid (Reference Key)
+
+	Table - II :	address
+	Fields :	recid (Primary Key), address1, address2, city, county, postalcode, country
+
+create table address_trainee_35 
+(
+	addressid int(52) primary key,
+	 address1 varchar(500), 
+	 address2 varchar(500), 
+	 city varchar(100), 
+	 county varchar(100), 
+	 postalcode int(52)
+	 );
+
+create table officestaff_trainee_35
+(
+	recid int(52) primary key, 
+	name varchar(255),
+	designation varchar(500),
+ 	salary decimal(8,2), 
+	overtimesalary decimal(8,2), 
+	bossno int(52), 
+	addressid int(52),
+ 	foreign key (addressid) References address_trainee_35(addressid)
+	);
+
+
+insert into address_trainee_35 (addressid,address1, address2, city, county,postalcode)
+values
+(1,"Gayatri nagar society","channi jagatnaka","vyara","India",394650),
+(2,"Sunset bungloos","kusum and siddhi buildings","vadodara","India",390098),
+(3,"Ram kabir building","bapa sitaram homes","surat","India",299005),
+(4,"maliwad","kMK homes","Ahmedabad","India",380008),
+(5,"mazda shopping center","raam tadav","bharuch","India",345678),
+(6,"raam tadav","jalvatika residency","surat","India",299009),
+(7,"gopi tadav","subham residency","vadodara","India",390089),
+(8,"gokul dham society","ram nagar society","vyara","India",394650),
+(9,"riddhi siddhi mandir maliwad","raguvir nagar","ahmedabad","India",380005);
+
+insert into officestaff_trainee_35
+(recid , name, designation , salary , overtimesalary , bossno , addressid )
+values
+(11,"nikita","Developer",50000,10000,13,9),
+(12,"prarthana","Programmer",50000,10000,13,8),
+(13,"rumit","HR",60000,20000,14,7),
+(14,"rahil","Boss",90000,30000,1,6),
+(15,"isha","HR",70000,20000,1,5),
+(16,"maulik","Boss",100000,30000,14,3),
+(17,"jexa","Developer",30000,10000,15,4),
+(18,"abhi","Programmer",40000,10000,15,2);
+
+
+Write queries for following requirements:
+
+	Table - I :	officestaff
+	Fields	:	recid , name, designation, salary, overtimesalary, bossno, addressid 
+
+	Table - II :	address
+	Fields :	recid , address1, address2, city, county, postalcode, country
+
+Q-1	List Name, Designation and Salary of all "officestaff" members.
+
+select name as Name,designation as Designation,salary as Salary from officestaff_trainee_35;
+
+Q-2	List Name and Salary of all the people who are working as "Programmer".
+
+select name "Name", salary "Salary" from officestaff_trainee_35 where designation = "Programmer";
+
+Q-3	List all the information about those people who are earning less than Rs.10,000/- .
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid
+where salary < 10000.00 ;
+
+Q-4	List all the information about those staff members who fall in the salary range of 	Rs.5000/- to Rs.10,000/- .
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid
+where salary between 50000 and 100000 ;
+
+Q-5	List Name of all the office staff members in Lower Case.
+
+select lower(name) " Name" from officestaff_trainee_35;
+
+Q-6	List Name of all the office staff members in following format:
+	For example, if name is "umeshbhai" then display it in the format "Umeshbhai".
+
+select concat(upper(substr(name,1,1)),lower(substr(name,2))) from officestaff_trainee_35;
+
+Q-7	List all the information about those people who works for "Nileshbhai".
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid=at.addressid
+where bossno in (select recid from officestaff_trainee_35 where name = "Nileshbhai");
+
+Q-8	List all the information about those members with salary greater than or equal to Rs.3000/- or working directly under "Nileshbhai".
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid=at.addressid
+where bossno in (select recid from officestaff_trainee_35 where name = "Nileshbhai") or salary >= 3000;
+
+Q-9	List Name, Salary, Over-time Salary of all the office staff members.
+
+select name "Name", salary "Salary",overtimesalary "Over-time Salary" from officestaff_trainee_35;
+
+Q-10	Perform above MySQL statement again, but now 0(Zero) should be substituted for NULL in 	Over-time Salary field.
+
+select name "Name", salary "Salary",ifnull(overtimesalary,0) "Over-time Salary" from officestaff_trainee_35 ;
+
+Q-11	List Name and Total Monthly Salary (Salary + Over-time Salary) of all the office staff 	members.
+
+select name "Name", (salary + overtimesalary)  "Total Monthly Salary" from officestaff_trainee_35;
+
+Q-12	List Name and Total Annual Salary of all the office staff members.
+
+select name "Name", ((salary + overtimesalary)*12)  "Total Annual Salary" from officestaff_trainee_35;
+
+Q-13	List Name and Total Daily Salary of all the office staff members. (Consider a month is 	of 30 days).
+
+select name "Name", ((salary + overtimesalary)/30)  "Total Daily Salary" from officestaff_trainee_35;
+
+Q-14	List all the information of the person earning Highest Salary (Salary + Over-time 	Salary) in the staff.
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid
+where salary+overtimesalary = (select max(salary + overtimesalary) from officestaff_trainee_35) ;
+
+Q-15	List all the information of the person earning Least Salary (Salary + Over-time Salary) 	in the staff.
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid
+where salary+overtimesalary = (select min(salary + overtimesalary) from officestaff_trainee_35) ;
+
+Q-16	List all the information about those who earn the Highest Salary (Salary + Over-time 	Salary) and those who earn the Least Salary (Salary + Over-time Salary) in the staff.
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid
+where (salary+overtimesalary) =
+(select min(salary + overtimesalary) from officestaff_trainee_35)
+or salary+overtimesalary = (select max(salary + overtimesalary) from officestaff_trainee_35) ;
+
+Q-17	List all the information about the person who earns more than his boss.
+
+select * from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid
+where salary > (select salary from officestaff_trainee_35 where designation = "Boss");
+
+Q-18	List Name, Designation, Salary and City of each staff member.
+
+select ot.name "Name",ot.designation "Designation", ot.salary "Salary", at.city "City" from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid;
+
+Q-19	Using "address" table list total number of persons residing in "Ahmedabad" city.
+
+select count(*) "total number of persons residing in Ahmedabad city" from address_trainee_35 where city = "ahmedabad";
+
+Q-20	List those City Name where 3 or more than 3 people resides.
+
+select city from (select count(*)as counts,city from officestaff_trainee_35 ot
+left join address_trainee_35 at on ot.addressid = at.addressid group by city)as t where t.counts > 3;
+
+
+
+ 
+extra:
+select os.name ,os.designation "Designation",
+oo.name "BossName" ,oo.designation "Boss Designation"
+ from officestaff_trainee_35 os
+inner join officestaff_trainee_35 oo
+on os.bossno = oo.recid;
+
+
+select case when name like '%bhai' then
+replace(name,substr(name,1,char_length(name)),
+concat(upper(substr(name,1,1)),
+substr(name,2,char_length(name)-5),
+upper(substr(name,char_length(name)-3,1)),
+substr(name,char_length(name)-2)))
+else concat(upper(substr(name,1,1)),substr(name,2)) end as name from officestaff_trainee_35;
